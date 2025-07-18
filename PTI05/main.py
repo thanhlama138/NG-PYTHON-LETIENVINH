@@ -53,9 +53,26 @@ class HomePage(QMainWindow):
         # self.btnIntro.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
         # self.btnProfile.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
         # self.btnSetting.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(2))
+        self.btnSearch.clicked.connect(self.findSongByName)
         
         self.loadData()
-        
+    def findSongByName(self):
+        search_text = self.lineEditSearch.text().lower()
+        content_widget = QWidget()
+        layout = QVBoxLayout(content_widget)
+        with open("Data/Songs.json", "r") as FILEDATA:
+            ListSong = json.load(FILEDATA)
+            for song in ListSong:
+                if search_text in song["name"].lower():
+                    frame = SongFrame(song)
+                    frame.ui.imageSong.setPixmap(QtGui.QPixmap(song["image"]))
+                    frame.ui.nameSong.setText(song["name"])
+                    frame.ui.duarationSong.setText("Nguồn: " + song["duration"])
+                    frame.ui.nameArtist.setText("Tác giả: " + song["artist"])
+                    frame.ui.viewSong.setText("Ngày viết: " + song["view"])
+                    layout.addWidget(frame)
+            self.scrollArea.setWidgetResizable(True)
+            self.scrollArea.setWidget(content_widget)
         
 
     
@@ -123,17 +140,26 @@ class AdminPage(QMainWindow):
         self.listSong.clear()
         self.counterAccount = 0
         self.counterSong = 0
-        # try :
-        with open("Data/Account.json","r") as file :
+
+    # Đọc danh sách account
+    try:
+        with open("Data/Account.json", "r", encoding="utf-8") as file:
             dataLoad = json.load(file)
             for account in dataLoad:
                 self.counterAccount += 1
                 self.listAccount.addItem(f"Account {self.counterAccount}   -  {account['username']} -  {account['password']} -  {account['gmail']}")
-        with open("Data/Songs.json","r") as file :
+    except Exception as e:
+        print("Không tìm thấy hoặc lỗi file Account.json:", e)
+
+    # Đọc danh sách bài báo
+    try:
+        with open("Data/Songs.json", "r", encoding="utf-8") as file:
             dataLoad = json.load(file)
             for song in dataLoad:
                 self.counterSong += 1
-                self.listSong.addItem("Song " + str(self.counterSong) + " :: " + song['name'] + " :: " + song['artist'] + " :: " + song['rating'] + " :: " + song['duration'] + "::" + str(song['view']) + "::" + song['image'] + " :: " + song['link'])
+                self.listSong.addItem("Song " + str(self.counterSong) + " :: " + song['name'] + " :: " + song['artist'] + " :: " + song['view'] + " :: " + song['rating'] + " :: " + song['duration'] + " :: " + song['image'] + " :: " + song['link'])
+    except Exception as e:
+        print("Không tìm thấy hoặc lỗi file Songs.json:", e)
 
                      
         

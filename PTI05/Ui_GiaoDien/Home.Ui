@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>582</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -115,7 +115,7 @@ border-radius:8px;
       <string/>
      </property>
     </widget>
-    <widget class="QLineEdit" name="Finding">
+    <widget class="QLineEdit" name="lineEditSearch">
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -131,6 +131,9 @@ border-radius: 8px;
 </string>
      </property>
      <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
       <string>Tìm kiếm</string>
      </property>
     </widget>
@@ -147,7 +150,7 @@ border-radius: 8px;
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../../Desktop/checkpoint02/img/spaces_-MWcLXaW6te9yNIG__kn_avatar-1616661413606.png</pixmap>
+      <pixmap>../../../../checkpoint02/img/spaces_-MWcLXaW6te9yNIG__kn_avatar-1616661413606.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -179,7 +182,7 @@ border-radius: 8px;
       <enum>Qt::PlainText</enum>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="btnSearch">
      <property name="geometry">
       <rect>
        <x>720</x>
@@ -242,7 +245,7 @@ border-radius: 8px
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../../Desktop/checkpoint02/img/icons8-archive-64.png</pixmap>
+      <pixmap>../../../../checkpoint02/img/icons8-archive-64.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -270,7 +273,7 @@ border-radius: 8px
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../../Desktop/checkpoint02/img/icons8-setting-64.png</pixmap>
+      <pixmap>../../../../checkpoint02/img/icons8-setting-64.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -366,16 +369,6 @@ border-radius: 8px</string>
    </widget>
    <zorder>widget</zorder>
    <zorder>stackedWidget</zorder>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>26</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

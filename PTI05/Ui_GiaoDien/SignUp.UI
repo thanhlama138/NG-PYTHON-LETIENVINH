@@ -81,7 +81,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../../Desktop/checkpoint02/img/spaces_-MWcLXaW6te9yNIG__kn_avatar-1616661413606.png</pixmap>
+      <pixmap>../../../../checkpoint02/img/spaces_-MWcLXaW6te9yNIG__kn_avatar-1616661413606.png</pixmap>
      </property>
     </widget>
     <widget class="QLabel" name="label_3">
